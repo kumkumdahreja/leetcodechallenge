@@ -1,0 +1,30 @@
+1657. Determine if Two Strings Are Close
+link:-https://leetcode.com/problems/determine-if-two-strings-are-close/description/
+code:-
+class Solution {
+    public boolean closeStrings(String word1, String word2) {
+        int count1=0;
+        if(word1.length()!=word2.length()){
+            return false;
+        }
+        int arr1[]=new int[26];
+        int arr2[]=new int[26];
+        if(word1.length()==word2.length()){
+            for(int i=0;i<word1.length();i++){
+                arr1[word1.charAt(i)-'a']++;
+                arr2[word2.charAt(i)-'a']++;
+            }
+            for (int i=0;i<26;i++){
+                if((arr1[i]==0 && arr2[i]!=0) || (arr1[i]!=0 && arr2[i]==0))
+                    return false;
+                } 
+            Arrays.sort(arr1);
+            Arrays.sort(arr2);
+        }
+        for(int i=0;i<26;i++){
+            if(arr1[i]!=arr2[i])
+            return false;
+        }
+        return true;
+    }
+}
