@@ -1,0 +1,26 @@
+48. Rotate Image
+link:- https://leetcode.com/problems/rotate-image/
+code:-
+class Solution {
+    public void rotate(int[][] matrix) {
+        int n = matrix.length;
+        for(int i = 0;i < n; i++){
+            for(int j = 0;j <= i; j++){
+               int temp = matrix[i][j];
+               matrix[i][j] = matrix[j][i];
+               matrix[j][i] = temp;
+            }
+        }
+        for(int r= 0;r < n; r++){
+            int l=0;
+            int ri=n-1;
+            while(l<ri){
+                int t=matrix[r][l];
+                matrix[r][l]=matrix[r][ri];
+                matrix[r][ri]=t;
+                l++;
+                ri--;
+            }
+        }
+    }
+}
