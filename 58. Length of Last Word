@@ -1,0 +1,9 @@
+58. Length of Last Word
+link:- https://leetcode.com/problems/length-of-last-word/description/
+code:- 
+class Solution {
+    public int lengthOfLastWord(String s) {
+     String ss[] = s.split(" ");
+     return ss[ss.length-1].length();
+    }
+}
