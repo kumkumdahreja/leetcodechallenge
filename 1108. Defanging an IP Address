@@ -1,0 +1,17 @@
+1108. Defanging an IP Address
+link:- https://leetcode.com/problems/defanging-an-ip-address/
+code:-
+class Solution {
+    public String defangIPaddr(String address) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < address.length(); i++) {
+            char ch = address.charAt(i);
+            if (ch == '.') {
+                result.append("[.]");
+            } else {
+                result.append(ch);
+            }
+        }
+        return result.toString();
+    }
+}
