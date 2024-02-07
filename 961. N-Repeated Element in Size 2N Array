@@ -1,0 +1,14 @@
+961. N-Repeated Element in Size 2N Array
+link:- https://leetcode.com/problems/n-repeated-element-in-size-2n-array/
+code:- 
+class Solution {
+    public int repeatedNTimes(int[] arr) {
+        HashSet<Integer> hp = new HashSet<>();
+
+        for(var a : arr){
+            if(hp.contains(a)) return a;
+            else hp.add(a);
+        }
+        return -1;
+    }
+}
