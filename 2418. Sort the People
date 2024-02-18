@@ -1,0 +1,17 @@
+2418. Sort the People
+link: https://leetcode.com/problems/sort-the-people/
+code:- 
+class Solution {
+    public String[] sortPeople(String[] names, int[] heights) {
+        String[][] people = new String[names.length][2];
+        for (int i = 0; i < names.length; i++) {
+            people[i] = new String[]{names[i], String.valueOf(heights[i])};
+        }
+        Arrays.sort(people, (a, b) -> -Integer.compare(Integer.parseInt(a[1]), Integer.parseInt(b[1])));
+        String[] sortedNames = new String[names.length];
+        for (int i = 0; i < names.length; i++) {
+            sortedNames[i] = people[i][0];
+        }
+        return sortedNames;
+    }
+}
