@@ -1,0 +1,18 @@
+1588. Sum of All Odd Length Subarrays
+link:-https://leetcode.com/problems/sum-of-all-odd-length-subarrays/description/
+code:-
+class Solution {
+    public int sumOddLengthSubarrays(int[] arr) {
+        int n = arr.length;
+        int sum = 0;
+        for (int length = 1; length <= n; length += 2) {
+            for (int i = 0; i + length <= n; i++) {
+                for (int j = i; j < i + length; j++) {
+                    sum += arr[j];
+                }
+            }
+        }
+        
+        return sum;
+    }
+}
