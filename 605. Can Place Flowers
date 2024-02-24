@@ -1,0 +1,21 @@
+605. Can Place Flowers
+link: https://leetcode.com/problems/can-place-flowers/?envType=study-plan-v2&envId=leetcode-75
+code:
+class Solution {
+   public boolean canPlaceFlowers(int[] flowerbed, int n) {
+       int count = 0;
+       int[] modifiedBed = new int[flowerbed.length + 2];
+       System.arraycopy(flowerbed, 0, modifiedBed, 1, flowerbed.length);
+
+       for (int i = 1; i < modifiedBed.length - 1; i++) {
+           if (modifiedBed[i] == 0 && modifiedBed[i - 1] == 0 && modifiedBed[i + 1] == 0) {
+               modifiedBed[i] = 1;
+               count++;
+           }
+           if (count >= n) {
+               return true;
+           }
+       }
+       return false;
+   }
+}
