@@ -1,0 +1,17 @@
+392. Is Subsequence
+link: https://leetcode.com/problems/is-subsequence/?envType=study-plan-v2&envId=leetcode-75
+code:
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        int sldx = 0, tIdx = 0;
+
+        while (sldx < s.length() && tIdx < t.length()) {
+            if (s.charAt(sldx) == t.charAt(tIdx)) {
+                sldx++;
+            }
+            tIdx++;
+        }
+
+        return sldx == s.length();
+    }
+}
