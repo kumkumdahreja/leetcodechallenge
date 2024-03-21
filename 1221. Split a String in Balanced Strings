@@ -1,0 +1,23 @@
+1221. Split a String in Balanced Strings
+link: https://leetcode.com/problems/split-a-string-in-balanced-strings/description/
+code: 
+class Solution {
+    public int balancedStringSplit(String s) {
+        int balance = 0;
+        int count = 0;
+        
+        for (char c : s.toCharArray()) {
+            if (c == 'L') {
+                balance++;
+            } else {
+                balance--;
+            }
+            
+            if (balance == 0) {
+                count++;
+            }
+        }
+        
+        return count;
+    }
+}
