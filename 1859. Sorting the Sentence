@@ -1,0 +1,22 @@
+1859. Sorting the Sentence
+link: https://leetcode.com/problems/sorting-the-sentence/
+code:
+class Solution {
+    public String sortSentence(String s) {
+                String[] words = s.split(" ");
+        String[] reconstructed = new String[words.length];
+
+        for (String word : words) {
+            int index = word.charAt(word.length() - 1) - '1';
+            reconstructed[index] = word.substring(0, word.length() - 1);
+        }
+
+        StringBuilder original = new StringBuilder();
+        for (String word : reconstructed) {
+            original.append(word).append(" ");
+        }
+
+        return original.toString().trim();
+
+    }
+}
