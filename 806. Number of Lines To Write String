@@ -1,0 +1,19 @@
+806. Number of Lines To Write String
+link: https://leetcode.com/problems/number-of-lines-to-write-string/
+code: 
+class Solution {
+    public int[] numberOfLines(int[] widths, String s) {
+        int w=1;
+        int sum=0;
+        for(char c:s.toCharArray()){
+            int p=widths[c-97];
+            if(sum+p<=100){
+                sum=sum+p;
+            }else{
+                w++;
+                sum=p;
+            }            
+        }
+        return new int[]{w,sum};
+    }
+}
