@@ -1,0 +1,22 @@
+2908. Minimum Sum of Mountain Triplets I
+link:  https://leetcode.com/problems/minimum-sum-of-mountain-triplets-i/
+code: 
+public class Solution {
+    public int minimumSum(int[] nums) {
+        int minSum = Integer.MAX_VALUE;
+        int n = nums.length;
+        
+        for (int i = 0; i < n - 2; i++) {
+            for (int j = i + 1; j < n - 1; j++) {
+                for (int k = j + 1; k < n; k++) {
+                    if (nums[i] < nums[j] && nums[k] < nums[j]) {
+                        int sum = nums[i] + nums[j] + nums[k];
+                        minSum = Math.min(minSum, sum);
+                    }
+                }
+            }
+        }
+        
+        return minSum == Integer.MAX_VALUE ? -1 : minSum;
+    }
+}
