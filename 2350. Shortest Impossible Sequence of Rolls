@@ -1,0 +1,19 @@
+2350. Shortest Impossible Sequence of Rolls
+link: https://leetcode.com/problems/shortest-impossible-sequence-of-rolls/
+code:
+class Solution {
+  public int shortestSequence(int[] rolls, int k) {
+    int table[] = new int[k+1], tot = 0, level = 1;
+    
+    for(int j = 0; j != rolls.length; j++){
+      if(table[rolls[j]]++ == 0) tot++;
+      if(tot == k){
+        level++;
+        tot = 0;
+        Arrays.fill(table, 0);
+      }
+    }
+    
+    return level;
+  }
+}
